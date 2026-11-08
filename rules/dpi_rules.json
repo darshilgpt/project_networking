@@ -1,0 +1,83 @@
+[
+  {
+    "id": 1001,
+    "name": "Suspicious HTTP Admin Access",
+    "protocol": "HTTP",
+    "field": "uri",
+    "pattern": "/admin",
+    "match_type": "substring",
+    "severity": "MEDIUM",
+    "action": "ALERT"
+  },
+  {
+    "id": 1002,
+    "name": "Environment File Exfiltration Attempt",
+    "protocol": "HTTP",
+    "field": "uri",
+    "pattern": "/.env",
+    "match_type": "exact",
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  {
+    "id": 1003,
+    "name": "Path Traversal Probe",
+    "protocol": "HTTP",
+    "field": "uri",
+    "pattern": "(\\.\\./|\\.\\.\\\\)",
+    "match_type": "regex",
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  {
+    "id": 1004,
+    "name": "SQL Injection Signature in URI",
+    "protocol": "HTTP",
+    "field": "uri",
+    "pattern": "(union.*select|select.*from|'\\s*or\\s*'1'='1)",
+    "match_type": "regex",
+    "severity": "HIGH",
+    "action": "ALERT"
+  },
+  {
+    "id": 1005,
+    "name": "Automated Security Scanner User-Agent",
+    "protocol": "HTTP",
+    "field": "user_agent",
+    "pattern": "(sqlmap|nikto|nmap|masscan|zgrab)",
+    "match_type": "regex",
+    "severity": "MEDIUM",
+    "action": "ALERT"
+  },
+  {
+    "id": 1006,
+    "name": "Suspicious DNS Tunneling Query",
+    "protocol": "DNS",
+    "field": "query_name",
+    "pattern": "\\.(tunnel|c2|exfil)\\.",
+    "match_type": "regex",
+    "severity": "HIGH",
+    "action": "ALERT"
+  },
+  {
+    "id": 1007,
+    "name": "Blacklisted TLS SNI Domain",
+    "protocol": "TLS",
+    "field": "sni",
+    "pattern": "(malware|phishing|c2server)\\.",
+    "match_type": "regex",
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  {
+    "id": 1008,
+    "name": "Raw Payload Web Shell Signature",
+    "protocol": "ANY",
+    "field": "payload",
+    "pattern": "(eval\\(base64_decode|system\\(\\$_GET)",
+    "match_type": "regex",
+    "severity": "CRITICAL",
+    "action": "BLOCK"
+  }
+]
+

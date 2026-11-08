@@ -1,0 +1,29 @@
+{
+  "server": {
+    "server_ip": "10.8.0.1",
+    "subnet": "10.8.0.0/24",
+    "listen_port": 51820,
+    "endpoint": "10.178.3.152:51820",
+    "public_key": "/OTvN+0cwi5gsFV5gJU/hUQ96KT8MfbvRAihxzUZHCs="
+  },
+  "peers": [
+    {
+      "name": "Laptop-Alice",
+      "vpn_ip": "10.8.0.2",
+      "public_key": "BRnMOhKpozh9xMqKsjK+OFOgLaSgj4rw0Cu6TaIehng=",
+      "conf_file": "clients\\laptop-alice.conf"
+    },
+    {
+      "name": "Laptop-Bob",
+      "vpn_ip": "10.8.0.3",
+      "public_key": "RV2zY+mL3j8ZEU2WaBaBJLp2ITYz9gjvAv6l3w+6Jlo=",
+      "conf_file": "clients\\laptop-bob.conf"
+    },
+    {
+      "name": "Laptop-Charlie",
+      "vpn_ip": "10.8.0.4",
+      "public_key": "TghdPQwWlaXO5T+MC4A/X7JOgUL0PrPwRBtkzm0kagE=",
+      "conf_file": "clients\\laptop-charlie.conf"
+    }
+  ]
+}

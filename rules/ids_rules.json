@@ -1,0 +1,119 @@
+{
+  "port_scan": {
+    "enabled": true,
+    "time_window_seconds": 300.0,
+    "unique_ports_threshold": 10,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  "syn_scan": {
+    "enabled": true,
+    "time_window_seconds": 300.0,
+    "unique_syn_ports_threshold": 10,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  "udp_scan": {
+    "enabled": true,
+    "time_window_seconds": 300.0,
+    "unique_udp_ports_threshold": 10,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  "stealth_scan": {
+    "enabled": true,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  "syn_flood": {
+    "enabled": true,
+    "time_window_seconds": 2.0,
+    "syn_rate_threshold": 25,
+    "severity": "CRITICAL",
+    "action": "BLOCK"
+  },
+  "dns_anomaly": {
+    "enabled": true,
+    "max_query_rate_per_sec": 40,
+    "nxdomain_threshold": 10,
+    "severity": "MEDIUM",
+    "action": "ALERT"
+  },
+  "dns_tunneling": {
+    "enabled": true,
+    "entropy_threshold": 3.8,
+    "subdomain_length_threshold": 45,
+    "txt_ratio_threshold": 0.5,
+    "severity": "HIGH",
+    "action": "ALERT"
+  },
+  "arp_spoofing": {
+    "enabled": true,
+    "gratuitous_flood_threshold": 10,
+    "severity": "CRITICAL",
+    "action": "BLOCK"
+  },
+  "dhcp_security": {
+    "enabled": true,
+    "starvation_threshold": 15,
+    "severity": "HIGH",
+    "action": "ALERT"
+  },
+  "icmp_anomaly": {
+    "enabled": true,
+    "ping_flood_threshold": 30,
+    "unreachable_burst_threshold": 15,
+    "oversized_payload_limit": 1024,
+    "severity": "HIGH",
+    "action": "ALERT"
+  },
+  "ip_spoofing": {
+    "enabled": true,
+    "land_attack_enabled": true,
+    "bogon_enabled": true,
+    "severity": "CRITICAL",
+    "action": "BLOCK"
+  },
+  "ttl_analysis": {
+    "enabled": true,
+    "variance_threshold": 8,
+    "low_ttl_threshold": 2,
+    "severity": "MEDIUM",
+    "action": "ALERT"
+  },
+  "protocol_evasion": {
+    "enabled": true,
+    "http_smuggling": true,
+    "tcp_flag_evasion": true,
+    "ip_overlap_evasion": true,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  },
+  "connection_failures": {
+    "enabled": true,
+    "time_window_seconds": 10.0,
+    "rst_threshold": 10,
+    "severity": "LOW",
+    "action": "ALERT"
+  },
+  "malformed_packet": {
+    "enabled": true,
+    "severity": "MEDIUM",
+    "action": "ALERT"
+  },
+  "threat_reputation": {
+    "enabled": true,
+    "severity": "CRITICAL",
+    "action": "BLOCK"
+  },
+  "reconnaissance": {
+    "enabled": true,
+    "ping_sweep_threshold": 5,
+    "arp_sweep_threshold": 8,
+    "tcp_sweep_threshold": 5,
+    "sweep_window_seconds": 5.0,
+    "severity": "HIGH",
+    "action": "BLOCK"
+  }
+}
+

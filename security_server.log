@@ -1,0 +1,18 @@
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.dpi.signature_matcher]: Loaded 8 DPI rules from 'C:\Users\kanva\Desktop\project_networking\dpi\..\rules\dpi_rules.json'
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.ids.behaviour_detector]: Loaded behavioural IDS config from 'C:\Users\kanva\Desktop\project_networking\ids\..\rules\ids_rules.json'
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server]: Initializing Network Security Server subsystems...
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.worker_pool]: Started worker pool with 4 threads (Queue bound: 10000)
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server]: Network Security Server running. Press Ctrl+C for graceful shutdown.
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.ingestion]: Starting PCAP replay from sample_vpn_traffic.pcap (Rate: fastest)
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.client_manager]: Registered new active VPN client: 10.8.0.2 (Auto-discovered)
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.client_manager]: Registered new active VPN client: 10.8.0.3 (Auto-discovered)
+2026-11-04 13:49:42 [WARNING] [dpi_ids_ips.server]: SECURITY ALERT [HIGH] [SIGNATURE_MATCH] Client: Client-10.8.0.3 (10.8.0.3) -> 8.8.8.8 | Rule: Suspicious DNS Tunneling Query | Action: ALERT | Evidence: Matched query_name: 'payload.tunnel.evil.com' on pattern '\.(tunnel|c2|exfil)\.'
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.client_manager]: Registered new active VPN client: 10.8.0.4 (Auto-discovered)
+2026-11-04 13:49:42 [WARNING] [dpi_ids_ips.server]: SECURITY ALERT [HIGH] [SIGNATURE_MATCH] Client: Client-10.8.0.4 (10.8.0.4) -> 192.168.1.10 | Rule: Environment File Exfiltration Attempt | Action: BLOCK | Evidence: Matched uri: '/.env' on pattern '/.env'
+2026-11-04 13:49:42 [INFO] [dpi_ids_ips.server.ingestion]: PCAP replay finished. Total packets: 7
+2026-11-04 13:49:42 [WARNING] [dpi_ids_ips.server]: SECURITY ALERT [HIGH] [SIGNATURE_MATCH] Client: Client-10.8.0.4 (10.8.0.4) -> 192.168.1.10 | Rule: Path Traversal Probe | Action: BLOCK | Evidence: Matched uri: '/../../windows/win.ini' on pattern '(\.\./|\.\.\\)'
+2026-11-04 13:49:43 [INFO] [dpi_ids_ips.server]: Stopping packet ingestion...
+2026-11-04 13:49:43 [INFO] [dpi_ids_ips.server]: Stopping worker threads...
+2026-11-04 13:49:43 [INFO] [dpi_ids_ips.server.worker_pool]: Worker pool successfully shut down.
+2026-11-04 13:49:43 [INFO] [dpi_ids_ips.server]: Stopping terminal dashboard...
+2026-11-04 13:49:43 [INFO] [dpi_ids_ips.server]: Server shutdown complete.

@@ -1,0 +1,6 @@
+# Real-Time Deep Packet Inspection and Network Intrusion Detection/Prevention System
+# Phase 1 Requirements
+
+scapy>=2.5.0
+pytest>=7.0.0
+

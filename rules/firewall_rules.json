@@ -1,0 +1,51 @@
+{
+  "firewall_rules": [
+    {
+      "rule_id": "BLOCK_TELNET_23",
+      "action": "BLOCK",
+      "protocol": "TCP",
+      "dst_ports": [23],
+      "direction": "BOTH",
+      "description": "Block insecure Telnet plaintext protocol",
+      "enabled": true
+    },
+    {
+      "rule_id": "BLOCK_INBOUND_SMB_445",
+      "action": "BLOCK",
+      "protocol": "TCP",
+      "dst_ports": [445, 139],
+      "direction": "INBOUND",
+      "description": "Block incoming SMB file-sharing connections from external network",
+      "enabled": true
+    },
+    {
+      "rule_id": "BLOCK_TOR_DEFAULT_DIR",
+      "action": "BLOCK",
+      "protocol": "TCP",
+      "dst_ports": [9001, 9030],
+      "direction": "OUTBOUND",
+      "description": "Block default Tor directory and relay ports",
+      "enabled": true
+    }
+  ],
+  "allowlist": {
+    "ips": ["127.0.0.1", "::1", "10.8.0.1"],
+    "ports": [67, 68, 5353]
+  },
+  "denylist": {
+    "ips": ["198.51.100.23", "203.0.113.88", "192.0.2.66"],
+    "subnets": ["198.51.100.0/24"],
+    "domains": ["evil-c2-server.com", "phishing-bank-login.xyz", "malicious-payload-drop.buzz"]
+  },
+  "rate_limiting": {
+    "enabled": true,
+    "default_pps_limit": 100.0,
+    "default_pps_burst": 150.0,
+    "default_bps_limit": 5000000.0
+  },
+  "dynamic_blocking": {
+    "default_ban_seconds": 300.0,
+    "auto_promote_critical_alerts": true
+  }
+}
+
