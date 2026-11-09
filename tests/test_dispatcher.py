@@ -70,7 +70,7 @@ def test_dispatch_full_udp_packet():
 def test_dispatch_ipv6_tcp_packet():
     """Tests IPv6 packet dispatch."""
     pkt = (
-        Ether()
+        Ether(src="00:11:22:33:44:55", dst="66:77:88:99:aa:bb")
         / IPv6(src="2001:db8::1", dst="2001:db8::2")
         / TCP(sport=8080, dport=80, flags="S")
         / b"IPv6 Web Request"

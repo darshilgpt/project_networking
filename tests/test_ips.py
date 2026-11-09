@@ -87,7 +87,7 @@ def test_simulation_mode_does_not_drop(dispatcher, blocking_manager):
 
 def test_safety_allowlist_override(dispatcher, blocking_manager):
     """Tests that loopback traffic is never blocked even if decision is BLOCK."""
-    pkt = dispatcher.dispatch(bytes(Ether() / IP(src="127.0.0.1", dst="127.0.0.1") / TCP()))
+    pkt = dispatcher.dispatch(bytes(Ether(src="00:00:00:00:00:00", dst="00:00:00:00:00:00") / IP(src="127.0.0.1", dst="127.0.0.1") / TCP()))
     action, msg = blocking_manager.handle_decision(DecisionAction.BLOCK, pkt, alerts=[])
 
     assert action == DecisionAction.ALERT
